@@ -1,0 +1,73 @@
+1.What's the difference between host objects and native objects?
+
+Ans:- Native objects: Native javascript objects are standard javascript objects which are provided by javascript itself.
+      They are also known as built-in objects, pre-defined objects, or global objects.
+       Their functionalities do not change with the change in the machine or environment and can be used as both,
+        constructors (like String(), Array(), Object()) and primitive values (like true, 999).
+
+        Host objects: Host javascript objects are environment-specific javascript objects,
+                      and may vary as per the environment of the machine in which the javascript is being used.
+                      For example, most browsers provide window objects or navigator objects, 
+                      but these objects are not present in the server running node.js.
+                      Example: window, console, navigator, NodeList.
+
+2.Explain the same-origin policy with regards to JavaScript?
+
+Ans:- The same-origin policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
+      example:- The same-origin policy restricts which network messages one origin can send to another. For example, the same-origin policy allows inter-origin HTTP requests with GET and POST methods but denies inter-origin PUT and DELETE requests.
+
+
+3. Differnce between setTimeout and setInterval?
+Ans:- setTimeout allows us to run a function once after the interval of time.
+      Example:  
+      setTimeout(function () {
+          something();
+       }, 1000); // Execute something() 1 second later.
+
+
+      setInterval allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.
+      Example:- 
+      setInterval(function () {
+           somethingElse();
+       }, 2000); // Execute somethingElse() every 2 seconds.
+
+       ** The interval unit is in millisecond for both functions.
+
+4. Explain "this" keyword in js?
+
+Ans:- The “this” keyword refers to the object that the function is a property of.
+
+      The value of the “this” keyword will always depend on the object that is invoking the function.
+      Example:
+       function doSomething() {
+            console.log(this);
+       }
+      doSomething();
+
+      What do you think the output of the above code will be?
+      Check the definition again:::
+      Since the function is invoked in the global context, the function is a property of the global object.
+      Therefore, the output of the above code will be the global object.
+       Since we ran the above code inside the browser, the global object is the window object.
+
+5. What is the distinction between client-side and server-side JavaScript?
+
+Ans:- Client-side JavaScript is made up of two parts, a fundamental language and predefined objects for performing JavaScript in a browser. 
+      JavaScript for the client is automatically included in the HTML pages. At runtime, the browser understands this script.
+      Client-side JavaScript is similar to server-side JavaScript. It includes JavaScript that will execute on a server.
+       Only after processing is the server-side JavaScript deployed.
+
+
+6.  What is a Temporal Dead Zone?
+
+ans:- Temporal Dead Zone is a behaviour that occurs with variables declared using let and const keywords.
+      It is a behaviour where we try to access a variable before it is initialized.
+      Example:- 
+        x = 23; // Gives reference error
+        let x;
+
+        function anotherRandomFunc(){
+              message = "Hello"; // Throws a reference error
+               let message;
+       }
+       anotherRandomFunc();
